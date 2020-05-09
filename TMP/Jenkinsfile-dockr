@@ -56,7 +56,7 @@ pipeline {
                    }
                steps {
                     
-                  sh "/sourceguard-cli -img sg.tar/"
+                  sh 'sourceguard-cli -img sg.tar'
                
                  
                   }
