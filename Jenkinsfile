@@ -62,21 +62,11 @@ pipeline {
             }
             
            
-        stage('Publish to Docker Hub') {
-           
-                  steps {
-                       script {
-                           try {
-                             docker.withRegistry('registry', 'docker_hub') {
-                              dockerImage.push("${env.BUILD_NUMBER}")
-                              dockerImage.push("latest")
-                              }
-                          } catch (Exception e) {
-    
-                             echo "Stage failed, but we continue"  
-                             }      
-                        }     
-                  }
-             }
+         stage('deploy and list pods') {
+    withKubeConfig([credentialsId: 'kubeconfig',
+                 
+                    ]) {
+      sh 'kubectl get pods'
+    }
     } 
 }
