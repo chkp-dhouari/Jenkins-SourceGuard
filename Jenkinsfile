@@ -62,12 +62,6 @@ pipeline {
             }
             
            
-         stage('deploy and list pods') {
-    withKubeConfig([credentialsId: 'kubeconfig',
-                 
-                    ]) {
-      sh 'kubectl get pods'
-       }
-    }
+        
   } 
 }
