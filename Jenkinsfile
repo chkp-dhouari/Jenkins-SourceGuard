@@ -61,7 +61,20 @@ pipeline {
             
             }
             
-           
+        stage('Publish') {
+          environment {
+               registryCredential = 'dockerhub'
+            }
+           steps{
+               script {
+                   def appimage = dhouari/sg"
+                   docker.withRegistry( '', registryCredential ) {
+                       appimage.push()
+                       appimage.push('latest')
+                   }
+               }
+           }
+       }
         
   } 
 }
