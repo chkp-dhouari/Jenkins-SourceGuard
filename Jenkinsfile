@@ -51,11 +51,14 @@ pipeline {
            }
        stage('SourceGuard Container Image Scan') {   
           steps {   
-                   
+              try {     
            
          
                     sh './sourceguard-cli --img sg.tar'
-           
+                    } catch (Exception e) {
+    
+                 echo "Image scanning is BLOCK and recommend not using the source code"  
+                  }
                 }
              
             
