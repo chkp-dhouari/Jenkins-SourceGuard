@@ -67,7 +67,7 @@ pipeline {
             }
            steps{
                script {
-                   def appimage = dhouari/sg"
+                   def appimage = "dhouari/sg"
                    docker.withRegistry( '', registryCredential ) {
                        appimage.push()
                        appimage.push('latest')
