@@ -1,4 +1,4 @@
-pipeline {
+ pipeline {
       agent any
       environment {
            SG_CLIENT_ID = credentials("SG_CLIENT_ID")
@@ -33,7 +33,7 @@ pipeline {
            
                } catch (Exception e) {
     
-                 echo "Code Analysis is BLOCK and recommend not using the source code"  
+                 echo "Request for Approval"  
                   }
               }
             }
